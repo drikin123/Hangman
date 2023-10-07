@@ -91,7 +91,7 @@ public class Pendu {
                 break;
             }
             try (Scanner myObj = new Scanner(System.in)) {
-                System.out.print("Donne moi une lettre \uD83E\uDEF4");
+                System.out.print("Donnes moi une lettre \uD83E\uDEF4");
                 String nvlet = myObj.nextLine();
                 setUtilise(nvlet);
                 System.out.println();
