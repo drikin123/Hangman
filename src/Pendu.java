@@ -90,22 +90,19 @@ public class Pendu {
                 System.out.println("\uD83C\uDF89 \uD83C\uDF89 \uD83C\uDF89 C'est gagné! \uD83C\uDF89 \uD83C\uDF89 \uD83C\uDF89");
                 break;
             }
-            try (Scanner myObj = new Scanner(System.in)) {
-                System.out.print("Donnes moi une lettre \uD83E\uDEF4");
-                String nvlet = myObj.nextLine();
-                setUtilise(nvlet);
-                System.out.println();
-                String[] queUn = nvlet.split("");
-                if (queUn.length != 1) {
-                    throw new Error("Une seule lettre, fin de partie pour toi \uD83D\uDED1");
-                }
-
-
-                decouvert(motChoisi, queUn);
-                setLettredecouvertes(motChoisi, queUn);
-            } catch (Error e) {
-                e.printStackTrace();
+            Scanner myObj = new Scanner(System.in);
+            System.out.print("Donnes moi une lettre \uD83E\uDEF4");
+            String nvlet = myObj.nextLine();
+            setUtilise(nvlet);
+            System.out.println();
+            String[] queUn = nvlet.split("");
+            if (queUn.length != 1) {
+                throw new Error("Une seule lettre, fin de partie pour toi \uD83D\uDED1");
             }
+
+
+            decouvert(motChoisi, queUn);
+            setLettredecouvertes(motChoisi, queUn);
 
         }
     }
@@ -133,17 +130,16 @@ public class Pendu {
         //System.out.println("Mot choisi : " + motChoisi);
 
         while(true){
-            try (Scanner myObj = new Scanner(System.in)) {
-                System.out.println("Nouvelle partie ?");
-                String nvlet = myObj.nextLine().toUpperCase();
-                if(nvlet.equals("OUI")) {
-                    Random random = new Random();
-                    int r = random.nextInt(motsListe.size());
-                    String motChoisi = motsListe.get(r);
-                    recommence();
-                    jeu(motChoisi);
-                }else{System.out.println("Le jeu s'arrete alors!");break;}
-            }
+            Scanner myObj = new Scanner(System.in);
+            System.out.println("Nouvelle partie ?");
+            String nvlet = myObj.nextLine().toUpperCase();
+            if(nvlet.equals("OUI")) {
+                Random random = new Random();
+                int r = random.nextInt(motsListe.size());
+                String motChoisi = motsListe.get(r);
+                recommence();
+                jeu(motChoisi);
+            }else{System.out.println("Le jeu s'arrete alors!");break;}
         }
 
     }
